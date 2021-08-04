@@ -131,6 +131,8 @@ type BasicKVStore interface {
 
 For `SC` store, the `BasicKVStore` provides access to the `SC` implementation without exposing its specific behavior. That means that `sc.Get(key)` will pass the query to the SC store which will search for `hash(key)`. To keep the interface as minimal as possible, we don't provide a `Delete` method. If needed, it can be added in the future as a non-breaking change.
 
+TODO: describe race condition.
+
 
 ## Consequences
 
