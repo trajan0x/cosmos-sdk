@@ -635,8 +635,8 @@ var xxx_messageInfo_GetNodeInfoRequest proto.InternalMessageInfo
 
 // GetNodeInfoResponse is the request type for the Query/GetNodeInfo RPC method.
 type GetNodeInfoResponse struct {
-	DefaultNodeInfo    *p2p.DefaultNodeInfo `protobuf:"bytes,1,opt,name=default_node_info,json=defaultNodeInfo,proto3" json:"default_node_info,omitempty"`
-	ApplicationVersion *VersionInfo         `protobuf:"bytes,2,opt,name=application_version,json=applicationVersion,proto3" json:"application_version,omitempty"`
+	NodeInfo           *p2p.NodeInfo `protobuf:"bytes,1,opt,name=default_node_info,json=nodeInfo,proto3" json:"node_info,omitempty"`
+	ApplicationVersion *VersionInfo  `protobuf:"bytes,2,opt,name=application_version,json=applicationVersion,proto3" json:"application_version,omitempty"`
 }
 
 func (m *GetNodeInfoResponse) Reset()         { *m = GetNodeInfoResponse{} }
@@ -672,9 +672,9 @@ func (m *GetNodeInfoResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_GetNodeInfoResponse proto.InternalMessageInfo
 
-func (m *GetNodeInfoResponse) GetDefaultNodeInfo() *p2p.DefaultNodeInfo {
+func (m *GetNodeInfoResponse) GetNodeInfo() *p2p.NodeInfo {
 	if m != nil {
-		return m.DefaultNodeInfo
+		return m.NodeInfo
 	}
 	return nil
 }
@@ -1708,9 +1708,9 @@ func (m *GetNodeInfoResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		i--
 		dAtA[i] = 0x12
 	}
-	if m.DefaultNodeInfo != nil {
+	if m.NodeInfo != nil {
 		{
-			size, err := m.DefaultNodeInfo.MarshalToSizedBuffer(dAtA[:i])
+			size, err := m.NodeInfo.MarshalToSizedBuffer(dAtA[:i])
 			if err != nil {
 				return 0, err
 			}
@@ -2051,8 +2051,8 @@ func (m *GetNodeInfoResponse) Size() (n int) {
 	}
 	var l int
 	_ = l
-	if m.DefaultNodeInfo != nil {
-		l = m.DefaultNodeInfo.Size()
+	if m.NodeInfo != nil {
+		l = m.NodeInfo.Size()
 		n += 1 + l + sovQuery(uint64(l))
 	}
 	if m.ApplicationVersion != nil {
@@ -3321,7 +3321,7 @@ func (m *GetNodeInfoResponse) Unmarshal(dAtA []byte) error {
 		switch fieldNum {
 		case 1:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field DefaultNodeInfo", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field NodeInfo", wireType)
 			}
 			var msglen int
 			for shift := uint(0); ; shift += 7 {
@@ -3348,10 +3348,10 @@ func (m *GetNodeInfoResponse) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			if m.DefaultNodeInfo == nil {
-				m.DefaultNodeInfo = &p2p.DefaultNodeInfo{}
+			if m.NodeInfo == nil {
+				m.NodeInfo = &p2p.NodeInfo{}
 			}
-			if err := m.DefaultNodeInfo.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			if err := m.NodeInfo.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex

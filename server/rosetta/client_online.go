@@ -99,7 +99,7 @@ func (c *Client) Bootstrap() error {
 		return err
 	}
 
-	tmRPC, err := http.New(c.config.TendermintRPC, tmWebsocketPath)
+	tmRPC, err := http.New(c.config.TendermintRPC)
 	if err != nil {
 		return err
 	}
